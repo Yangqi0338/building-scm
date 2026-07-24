@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.newzkl.platform</groupId>
+    <artifactId>building-scm</artifactId>
+    <version>${revision}</version>
+    <packaging>jar</packaging>
+    <name>building-scm</name>
+    <description>building-scm - SCM 后端入口 starter (聚合 Base biz-action + 装配身份 plugin)</description>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>3.2.5</version>
+        <relativePath/>
+    </parent>
+
+    <properties>
+        <revision>1.0.0-SNAPSHOT</revision>
+        <base.revision>1.0.0-SNAPSHOT</base.revision>
+        <plugin.revision>1.0.0-SNAPSHOT</plugin.revision>
+        <java.version>21</java.version>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <spring-boot.version>3.2.5</spring-boot.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.newzkl.platform</groupId>
+                <artifactId>bom</artifactId>
+                <version>${base.revision}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring-boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+        <!-- 业务 action (带 SpuController + 传递 biz-goods-application/domain + ddd-action SPI 基建) -->
+        <dependency>
+            <groupId>com.newzkl.platform.Base</groupId>
+            <artifactId>biz-goods-action</artifactId>
+        </dependency>
+
+        <!-- 身份 plugin 装配 (部署级身份开关: 装哪几个 = 支持哪些身份) -->
+        <dependency>
+            <groupId>com.newzkl.platform</groupId>
+            <artifactId>plugin-channel</artifactId>
+            <version>${plugin.revision}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.newzkl.platform</groupId>
+            <artifactId>plugin-supplier</artifactId>
+            <version>${plugin.revision}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.newzkl.platform</groupId>
+            <artifactId>plugin-operator</artifactId>
+            <version>${plugin.revision}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>${spring-boot.version}</version>
+                <configuration>
+                    <mainClass>com.newzkl.platform.scm.ScmApplication</mainClass>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>
