@@ -1,4 +1,4 @@
-package com.newzkl.platform.scm;
+package com.newzkl.platform.app.scm;
 
 import com.newzkl.platform.base.common.core.model.constants.TokenConstants;
 import com.newzkl.platform.base.common.core.model.exception.ScmException;
@@ -11,7 +11,7 @@ import com.newzkl.platform.base.common.ddd.application.spi.demo.IdentityConfigEx
 import com.newzkl.platform.plugin.channel.config.ChannelConfigProvider;
 import com.newzkl.platform.plugin.operator.config.OperatorConfigProvider;
 import com.newzkl.platform.plugin.supplier.config.SupplierConfigProvider;
-import com.newzkl.platform.scm.config.DefaultConfigProvider;
+import com.newzkl.platform.app.scm.config.DefaultConfigProvider;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.runner.ApplicationContextRunner;

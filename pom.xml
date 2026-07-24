@@ -54,6 +54,20 @@
             <groupId>com.newzkl.platform.Base</groupId>
             <artifactId>biz-goods-action</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.newzkl.platform.Base</groupId>
+            <artifactId>biz-goods-infrastructure</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.newzkl.platform.Base</groupId>
+            <artifactId>core-db-migrate</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.newzkl.platform.Base.core</groupId>
+            <artifactId>core-job-infra</artifactId>
+        </dependency>
 
         <!-- 身份 plugin 装配 (部署级身份开关: 装哪几个 = 支持哪些身份) -->
         <dependency>
@@ -91,7 +105,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <version>${spring-boot.version}</version>
                 <configuration>
-                    <mainClass>com.newzkl.platform.scm.ScmApplication</mainClass>
+                    <mainClass>com.newzkl.platform.app.scm.ScmApplication</mainClass>
                 </configuration>
                 <executions>
                     <execution>
