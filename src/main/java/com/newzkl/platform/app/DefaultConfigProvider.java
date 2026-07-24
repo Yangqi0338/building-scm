@@ -1,4 +1,4 @@
-package com.newzkl.platform.scm.config;
+package com.newzkl.platform.app;
 
 import com.newzkl.platform.base.common.ddd.application.spi.IdentityImpl;
 import com.newzkl.platform.base.common.ddd.application.spi.demo.IdentityConfigExt;
