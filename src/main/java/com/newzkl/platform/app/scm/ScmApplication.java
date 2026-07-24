@@ -1,7 +1,11 @@
 package com.newzkl.platform.app.scm;
 
+import com.newzkl.platform.base.common.core.job.annotation.EnableXXLJob;
+import com.newzkl.platform.base.common.core.mq.annotation.EnableMQConfiguration;
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cache.annotation.EnableCaching;
 
 /**
  * SCM 后端入口启动类。
@@ -11,7 +15,13 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  *
  * @author KC
  */
+@EnableXXLJob
+//@RefreshScope
+@EnableCaching
+//@EnableAutoTable
+@EnableMQConfiguration
 @SpringBootApplication(scanBasePackages = "com.newzkl.platform")
+@MapperScan({"com.newzkl.platform.**.infrastructure.dao.**"})
 public class ScmApplication {
 
     /**
