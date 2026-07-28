@@ -1,0 +1,11 @@
+# local-kc profile — 本地开发 (参考 adopt-chicken local-kc, namespace 改为 platform-service)
+spring:
+  cloud:
+    nacos:
+      discovery:
+        namespace: platform-service
+      config:
+        namespace: platform-service
+
+auto-table:
+  enable: true
