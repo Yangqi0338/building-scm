@@ -90,6 +90,22 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
+        <!--
+          OpenAPI 文档暴露: /v3/api-docs (ApiFox 导入源) + /swagger-ui.html。
+          配套 therapi-runtime-javadoc: 各模块编译期已由父 pom 的 scribe 处理器
+          把 javadoc 写进 class 资源, 此处运行期读出来填 OpenAPI 的 description,
+          因此 req/res 字段与 controller 方法的中文 javadoc 直接成为接口文档说明,
+          无需逐字段再写 @Schema 注解。
+        -->
+        <dependency>
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.github.therapi</groupId>
+            <artifactId>therapi-runtime-javadoc</artifactId>
+        </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
