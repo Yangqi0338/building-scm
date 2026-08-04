@@ -1,7 +1,7 @@
 package com.newzkl.platform.app.scm;
 
 import com.newzkl.platform.base.common.core.model.constants.TokenConstants;
-import com.newzkl.platform.base.common.core.model.exception.ScmException;
+import com.newzkl.platform.base.common.core.model.exception.PlatformException;
 import com.newzkl.platform.base.common.core.utils.spring.SecurityContextHolder;
 import com.newzkl.platform.base.common.ddd.action.spi.IdentityDispatcher;
 import com.newzkl.platform.base.common.ddd.action.spi.IdentityExtensionProxyRegistrar;
@@ -68,7 +68,7 @@ class IdentityConfigDispatchTest {
     }
 
     /**
-     * 场景B 无 supplier: 仅 Default+Channel+Operator, 身份 1001 无匹配且 default 非兜底 → 抛 {@link ScmException}。
+     * 场景B 无 supplier: 仅 Default+Channel+Operator, 身份 1001 无匹配且 default 非兜底 → 抛 {@link PlatformException}。
      */
     @Test
     void missingSupplierThrowsForUnmatchedIdentity() {
@@ -81,7 +81,7 @@ class IdentityConfigDispatchTest {
 
                     SecurityContextHolder.set(TokenConstants.ROLE, "1001");
                     assertThatThrownBy(() -> ext.config("x"))
-                            .isInstanceOf(ScmException.class);
+                            .isInstanceOf(PlatformException.class);
                 });
     }
 

@@ -1,7 +1,7 @@
 package com.newzkl.platform.app.scm;
 
 import com.newzkl.platform.base.common.core.job.annotation.EnableXXLJob;
-import com.newzkl.platform.base.common.core.mq.annotation.EnableMQConfiguration;
+import com.newzkl.platform.base.common.core.mq.infrastructure.annotation.EnableMQConfiguration;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
