@@ -16,6 +16,15 @@ spring:
         file-extension: yml
         group: ${nacos.config.group:DEFAULT_GROUP}
         shared-configs:
+          - data-id: platform-db.yml
+            group: DEFAULT_GROUP
+            refresh: true
+          - data-id: platform-thirdParty.yml
+            group: DEFAULT_GROUP
+            refresh: true
+          - data-id: platform-web.yml
+            group: DEFAULT_GROUP
+            refresh: true
           - data-id: platform-share-config.yml
             group: DEFAULT_GROUP
             refresh: true
