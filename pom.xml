@@ -125,6 +125,10 @@
             <groupId>com.newzkl.platform</groupId>
             <artifactId>plugin-operator</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.newzkl.platform</groupId>
+            <artifactId>plugin-hdh</artifactId>
+        </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
