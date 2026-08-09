@@ -50,63 +50,6 @@
     </dependencyManagement>
 
     <dependencies>
-        <!-- 业务 action (带 SpuController + 传递 biz-goods-application/domain + ddd-action SPI 基建) -->
-        <dependency>
-            <groupId>com.newzkl.platform.Base</groupId>
-            <artifactId>biz-goods-action</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.newzkl.platform.Base</groupId>
-            <artifactId>biz-goods-infrastructure</artifactId>
-        </dependency>
-
-        <!-- E-17 装配聚合: 各 biz 域 infrastructure (impl 层, 提供 repository/adapter/DAO bean) -->
-        <dependency>
-            <groupId>com.newzkl.platform.Base</groupId>
-            <artifactId>biz-auth-infrastructure</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.newzkl.platform.Base</groupId>
-            <artifactId>biz-content-infrastructure</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.newzkl.platform.Base</groupId>
-            <artifactId>biz-finance-infrastructure</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.newzkl.platform.Base</groupId>
-            <artifactId>biz-market-infrastructure</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.newzkl.platform.Base</groupId>
-            <artifactId>biz-notify-infrastructure</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.newzkl.platform.Base</groupId>
-            <artifactId>biz-order-infrastructure</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.newzkl.platform.Base</groupId>
-            <artifactId>biz-social-bang-infrastructure</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.newzkl.platform.Base</groupId>
-            <artifactId>biz-store-infrastructure</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.newzkl.platform.Base</groupId>
-            <artifactId>biz-sys-infrastructure</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.newzkl.platform.Base</groupId>
-            <artifactId>biz-user-infrastructure</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>com.newzkl.platform.Base.core</groupId>
-            <artifactId>core-db-migrate-infrastructure</artifactId>
-        </dependency>
-
         <dependency>
             <groupId>com.newzkl.platform.Base.core</groupId>
             <artifactId>core-job-infrastructure</artifactId>
@@ -128,6 +71,14 @@
         <dependency>
             <groupId>com.newzkl.platform</groupId>
             <artifactId>plugin-hdh</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.newzkl.platform</groupId>
+            <artifactId>plugin-openapi</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.newzkl.platform</groupId>
+            <artifactId>plugin-audit</artifactId>
         </dependency>
 
         <dependency>
