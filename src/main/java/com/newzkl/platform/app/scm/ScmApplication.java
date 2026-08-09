@@ -1,6 +1,7 @@
 package com.newzkl.platform.app.scm;
 
 import com.dtflys.forest.springboot.annotation.ForestScan;
+import com.newzkl.platform.base.common.core.job.infrastructure.annotation.EnableXXLJob;
 import com.newzkl.platform.base.common.core.mq.infrastructure.annotation.EnableMQConfiguration;
 import org.dromara.autotable.springboot.EnableAutoTable;
 import org.mybatis.spring.annotation.MapperScan;
@@ -18,7 +19,7 @@ import org.springframework.cloud.context.config.annotation.RefreshScope;
  * @author KC
  */
 @ForestScan(basePackages = {"com.newzkl.platform"})
-//@EnableXXLJob
+@EnableXXLJob
 @RefreshScope
 @EnableCaching
 @EnableAutoTable
