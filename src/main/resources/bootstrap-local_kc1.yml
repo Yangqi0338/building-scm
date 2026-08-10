@@ -19,3 +19,6 @@ dubbo:
 
 auto-table:
   enable: true
+
+server:
+  port: 9002
