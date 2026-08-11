@@ -1,5 +1,8 @@
 spring:
   cloud:
+    config:
+      # 设为 true 后，远程配置不会覆盖任何已有的本地配置
+      override-none: true
     nacos:
       discovery:
         ip: 192.168.30.85

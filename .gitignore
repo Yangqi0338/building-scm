@@ -72,4 +72,4 @@ app-test/
 .codegraph/
 .codebase-memory/
 
-src/main/resources/sql/*_data.sql
+src/main/resources/sql/*/*_data.sql
