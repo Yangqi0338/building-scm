@@ -1,0 +1,11 @@
+{
+    "schema_version": 2,
+    "commit": "00c5768e92b2e10d2f9f5a72ad5c4c8181dd7f44",
+    "indexed_at": "2026-07-29T08:01:24Z",
+    "project": "zhai-building-scm",
+    "nodes": 99,
+    "edges": 128,
+    "original_size": 1310720,
+    "compressed_size": 51083,
+    "compression_level": 9
+}

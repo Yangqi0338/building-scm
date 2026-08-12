@@ -9,7 +9,6 @@ import com.newzkl.platform.base.common.ddd.action.spi.IdentityExtensionRegistrar
 import com.newzkl.platform.base.common.ddd.application.spi.IdentityImpl;
 import com.newzkl.platform.base.common.ddd.application.spi.demo.IdentityConfigExt;
 import com.newzkl.platform.plugin.channel.config.ChannelConfigProvider;
-import com.newzkl.platform.plugin.operator.config.OperatorConfigProvider;
 import com.newzkl.platform.plugin.supplier.config.SupplierConfigProvider;
 import com.newzkl.platform.app.scm.config.DefaultConfigProvider;
 import org.junit.jupiter.api.AfterEach;
@@ -41,14 +40,13 @@ class IdentityConfigDispatchTest {
     }
 
     /**
-     * 场景A 全装: Default(1,2)+Channel(1002)+Supplier(1001)+Operator(1004) 均在, 各身份精确命中。
+     * 场景A 全装: Default(1,2)+Channel(1002)+Supplier(1001) 均在, 各身份精确命中。
      */
     @Test
     void allInstalledResolvesEachIdentity() {
         runner.withBean(DefaultConfigProvider.class)
                 .withBean(ChannelConfigProvider.class)
                 .withBean(SupplierConfigProvider.class)
-                .withBean(OperatorConfigProvider.class)
                 .run(ctx -> {
                     IdentityDispatcher dispatcher = ctx.getBean(IdentityDispatcher.class);
                     IdentityConfigExt ext = dispatcher.resolve(IdentityConfigExt.class);
@@ -59,22 +57,18 @@ class IdentityConfigDispatchTest {
                     SecurityContextHolder.set(TokenConstants.ROLE, "1001");
                     assertThat(ext.config("x")).isEqualTo("supplier:x");
 
-                    SecurityContextHolder.set(TokenConstants.ROLE, "1004");
-                    assertThat(ext.config("x")).isEqualTo("operator:x");
-
                     SecurityContextHolder.set(TokenConstants.ROLE, "1");
                     assertThat(ext.config("x")).isEqualTo("platform:x");
                 });
     }
 
     /**
-     * 场景B 无 supplier: 仅 Default+Channel+Operator, 身份 1001 无匹配且 default 非兜底 → 抛 {@link PlatformException}。
+     * 场景B 无 supplier: 仅 Default+Channel, 身份 1001 无匹配且 default 非兜底 → 抛 {@link ScmException}。
      */
     @Test
     void missingSupplierThrowsForUnmatchedIdentity() {
         runner.withBean(DefaultConfigProvider.class)
                 .withBean(ChannelConfigProvider.class)
-                .withBean(OperatorConfigProvider.class)
                 .run(ctx -> {
                     IdentityDispatcher dispatcher = ctx.getBean(IdentityDispatcher.class);
                     IdentityConfigExt ext = dispatcher.resolve(IdentityConfigExt.class);
