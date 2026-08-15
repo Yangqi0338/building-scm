@@ -8,6 +8,7 @@ import com.newzkl.platform.base.common.ddd.action.spi.IdentityExtensionProxyRegi
 import com.newzkl.platform.base.common.ddd.action.spi.IdentityExtensionRegistrar;
 import com.newzkl.platform.base.common.ddd.application.spi.IdentityImpl;
 import com.newzkl.platform.base.common.ddd.application.spi.demo.IdentityConfigExt;
+import com.newzkl.platform.base.common.ddd.model.enums.RoleEnum;
 import com.newzkl.platform.plugin.channel.config.ChannelConfigProvider;
 import com.newzkl.platform.plugin.supplier.config.SupplierConfigProvider;
 import com.newzkl.platform.app.scm.config.DefaultConfigProvider;
@@ -51,19 +52,19 @@ class IdentityConfigDispatchTest {
                     IdentityDispatcher dispatcher = ctx.getBean(IdentityDispatcher.class);
                     IdentityConfigExt ext = dispatcher.resolve(IdentityConfigExt.class);
 
-                    SecurityContextHolder.set(TokenConstants.ROLE, "1002");
+                    SecurityContextHolder.set(TokenConstants.DETAILS_ROLE, "1002");
                     assertThat(ext.config("x")).isEqualTo("channel:x");
 
-                    SecurityContextHolder.set(TokenConstants.ROLE, "1001");
+                    SecurityContextHolder.set(TokenConstants.DETAILS_ROLE, "1001");
                     assertThat(ext.config("x")).isEqualTo("supplier:x");
 
-                    SecurityContextHolder.set(TokenConstants.ROLE, "1");
+                    SecurityContextHolder.set(TokenConstants.DETAILS_ROLE, "1");
                     assertThat(ext.config("x")).isEqualTo("platform:x");
                 });
     }
 
     /**
-     * 场景B 无 supplier: 仅 Default+Channel, 身份 1001 无匹配且 default 非兜底 → 抛 {@link ScmException}。
+     * 场景B 无 supplier: 仅 Default+Channel, 身份 1001 无匹配且 default 非兜底 →。
      */
     @Test
     void missingSupplierThrowsForUnmatchedIdentity() {
@@ -73,7 +74,7 @@ class IdentityConfigDispatchTest {
                     IdentityDispatcher dispatcher = ctx.getBean(IdentityDispatcher.class);
                     IdentityConfigExt ext = dispatcher.resolve(IdentityConfigExt.class);
 
-                    SecurityContextHolder.set(TokenConstants.ROLE, "1001");
+                    SecurityContextHolder.set(TokenConstants.DETAILS_ROLE, "1001");
                     assertThatThrownBy(() -> ext.config("x"))
                             .isInstanceOf(PlatformException.class);
                 });
@@ -93,7 +94,7 @@ class IdentityConfigDispatchTest {
     /**
      * 与 {@link ChannelConfigProvider} 条件重叠 (同为 1002) 的冲突实现, 仅用于场景C 触发 fail-fast。
      */
-    @IdentityImpl(1002L)
+    @IdentityImpl(RoleEnum.CompanyRole.CHANNEL)
     static class CollidingChannelConfigProvider implements IdentityConfigExt {
 
         @Override

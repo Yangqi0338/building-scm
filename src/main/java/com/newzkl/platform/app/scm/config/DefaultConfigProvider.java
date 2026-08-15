@@ -2,6 +2,7 @@ package com.newzkl.platform.app.scm.config;
 
 import com.newzkl.platform.base.common.ddd.application.spi.IdentityImpl;
 import com.newzkl.platform.base.common.ddd.application.spi.demo.IdentityConfigExt;
+import com.newzkl.platform.base.common.ddd.model.enums.RoleEnum;
 
 /**
  * 身份配置提供-平台默认实现(演示)。
@@ -11,7 +12,7 @@ import com.newzkl.platform.base.common.ddd.application.spi.demo.IdentityConfigEx
  *
  * @author KC
  */
-@IdentityImpl({1L, 2L})
+@IdentityImpl({RoleEnum.CompanyRole.PLATFORM, RoleEnum.CompanyRole.EMP})
 public class DefaultConfigProvider implements IdentityConfigExt {
 
     @Override
