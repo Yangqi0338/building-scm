@@ -8,7 +8,7 @@ import com.newzkl.platform.base.common.ddd.action.spi.IdentityExtensionProxyRegi
 import com.newzkl.platform.base.common.ddd.action.spi.IdentityExtensionRegistrar;
 import com.newzkl.platform.base.common.ddd.application.spi.IdentityImpl;
 import com.newzkl.platform.base.common.ddd.application.spi.demo.IdentityConfigExt;
-import com.newzkl.platform.base.common.ddd.model.enums.RoleEnum;
+import com.newzkl.platform.base.common.ddd.model.enums.user.RoleEnum;
 import com.newzkl.platform.plugin.channel.config.ChannelConfigProvider;
 import com.newzkl.platform.plugin.supplier.config.SupplierConfigProvider;
 import com.newzkl.platform.app.scm.config.DefaultConfigProvider;
