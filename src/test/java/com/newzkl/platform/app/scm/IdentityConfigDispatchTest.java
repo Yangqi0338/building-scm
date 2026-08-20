@@ -8,6 +8,7 @@ import com.newzkl.platform.base.common.ddd.action.spi.IdentityExtensionProxyRegi
 import com.newzkl.platform.base.common.ddd.action.spi.IdentityExtensionRegistrar;
 import com.newzkl.platform.base.common.ddd.application.spi.IdentityImpl;
 import com.newzkl.platform.base.common.ddd.application.spi.demo.IdentityConfigExt;
+import com.newzkl.platform.base.common.ddd.model.enums.account.AccountEnum;
 import com.newzkl.platform.base.common.ddd.model.enums.user.RoleEnum;
 import com.newzkl.platform.plugin.channel.config.ChannelConfigProvider;
 import com.newzkl.platform.plugin.supplier.config.SupplierConfigProvider;
@@ -94,7 +95,7 @@ class IdentityConfigDispatchTest {
     /**
      * 与 {@link ChannelConfigProvider} 条件重叠 (同为 1002) 的冲突实现, 仅用于场景C 触发 fail-fast。
      */
-    @IdentityImpl(RoleEnum.CompanyRole.CHANNEL)
+    @IdentityImpl(AccountEnum.Identity.CHANNEL)
     static class CollidingChannelConfigProvider implements IdentityConfigExt {
 
         @Override

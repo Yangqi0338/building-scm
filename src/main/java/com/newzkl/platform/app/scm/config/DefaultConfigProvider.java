@@ -12,7 +12,7 @@ import com.newzkl.platform.base.common.ddd.model.enums.account.AccountEnum;
  *
  * @author KC
  */
-@IdentityImpl({AccountEnum.Identity.PLATFORM, AccountEnum.Identity.EMP})
+@IdentityImpl(identities = {AccountEnum.Identity.PLATFORM, AccountEnum.Identity.EMP})
 public class DefaultConfigProvider implements IdentityConfigExt {
 
     @Override
