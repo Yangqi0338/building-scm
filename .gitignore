@@ -73,3 +73,4 @@ app-test/
 .codebase-memory/
 
 src/main/resources/sql/*/*_data.sql
+src/main/resources/rebel.xml

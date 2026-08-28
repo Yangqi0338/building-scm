@@ -25,7 +25,7 @@ import org.springframework.cloud.context.config.annotation.RefreshScope;
 @EnableAutoTable
 @EnableMQConfiguration
 @SpringBootApplication(scanBasePackages = "com.newzkl.platform")
-@MapperScan({"com.newzkl.platform.**.infrastructure.**.dao.**","com.newzkl.platform.**.infrastructure.dao.**"})
+@MapperScan({"com.newzkl.platform.**.infrastructure.**.dao.**","com.newzkl.platform.**.infrastructure.dao.**", "com.newzkl.platform.base.common.**.infrastructure.**.dao.**","com.newzkl.platform.base.common.**.**.infrastructure.**.dao.**"})
 public class ScmApplication {
 
     /**
