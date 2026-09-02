@@ -8,10 +8,10 @@ spring:
     nacos:
       discovery:
         group: ${nacos.discovery.group:DEFAULT_GROUP}
-        server-addr: ${nacos.addr:192.168.30.85:8848}
+        server-addr: ${nacos.addr:124.70.145.191:8848}
         namespace: ${nacos.namespace:platform-service}
       config:
-        server-addr: ${nacos.addr:192.168.30.85:8848}
+        server-addr: ${nacos.addr:124.70.145.191:8848}
         namespace: ${nacos.namespace:platform-service}
         file-extension: yml
         group: ${nacos.config.group:DEFAULT_GROUP}
